@@ -61,24 +61,65 @@ variables:
 # There is a variable called snippets that we can use to auto-generate this section for us
 snippets:
 
-  - name: entry-75913
+  - name: entry-181085
     xpath: /config/shared/address
     element: |-
         <entry name="{{ HOST_NAME }}">
                 <ip-netmask>{{ HOST_IP }}</ip-netmask>
               </entry>
 
-  - name: member-538893
+  - name: member-646812
     xpath: /config/shared/address-group/entry[@name="iWAN-Public-Group"]/static
     element: |-
         <member>{{ HOST_NAME }}</member>
 
-  - name: entry-75913
+  - name: entry-493769
+    xpath: /config/devices/entry[@name="localhost.localdomain"]/template/entry[@name="xir-pan-prod"]/config/devices/entry[@name="localhost.localdomain"]/network/virtual-router/entry[@name="vr_VPN"]/protocol/ospf/export-rules
+    element: |-
+        <entry name="{{ HOST_IP }}">
+                                      <new-path-type>ext-1</new-path-type>
+                                      <metric>1</metric>
+                                    </entry>
+
+  - name: entry-343679
+    xpath: /config/devices/entry[@name="localhost.localdomain"]/template/entry[@name="xhd-pan-prod"]/config/devices/entry[@name="localhost.localdomain"]/network/virtual-router/entry[@name="vr_VPN"]/protocol/ospf/export-rules
+    element: |-
+        <entry name="{{ HOST_IP }}">
+                                      <new-path-type>ext-1</new-path-type>
+                                      <metric>1</metric>
+                                    </entry>
+
+  - name: entry-328214
+    xpath: /config/devices/entry[@name="localhost.localdomain"]/template/entry[@name="xap-pan-prod"]/config/devices/entry[@name="localhost.localdomain"]/network/virtual-router/entry[@name="vr_VPN"]/protocol/ospf/export-rules
+    element: |-
+        <entry name="{{ HOST_IP }}">
+                                      <new-path-type>ext-1</new-path-type>
+                                      <metric>1</metric>
+                                    </entry>
+
+  - name: entry-981240
+    xpath: /config/devices/entry[@name="localhost.localdomain"]/template/entry[@name="xco-pan-prod"]/config/devices/entry[@name="localhost.localdomain"]/network/virtual-router/entry[@name="vr_VPN"]/protocol/ospf/export-rules
+    element: |-
+        <entry name="{{ HOST_IP }}">
+                                      <new-path-type>ext-1</new-path-type>
+                                      <metric>1</metric>
+                                    </entry>
+
+  - name: entry-64946
+    xpath: /config/devices/entry[@name="localhost.localdomain"]/template/entry[@name="xsj-pan-prod"]/config/devices/entry[@name="localhost.localdomain"]/network/virtual-router/entry[@name="vr_VPN"]/protocol/ospf/export-rules
+    element: |-
+        <entry name="{{ HOST_IP }}">
+                                      <new-path-type>ext-1</new-path-type>
+                                      <metric>1</metric>
+                                    </entry>
+
+  - name: entry-181084
     xpath: /config/shared/address
     element: |-
         <entry name="{{ HOST_NAME }}">
                 <ip-netmask>{{ HOST_IP }}</ip-netmask>
               </entry>
+
 
 
 # ---------------------------------------------------------------------
