@@ -1,0 +1,86 @@
+# skillet preamble information used by panhandler
+.idea/
+# ---------------------------------------------------------------------
+# unique snippet name
+name: dinesh-mySkillet-iwan-with-object
+# label used for menu selection
+label: -dineshmy_skillet_label
+description: create an object and add in to iwan group
+
+# type of device configuration
+# common types are panorama, panos, and template
+# https://github.com/PaloAltoNetworks/panhandler/blob/develop/docs/metadata_configuration.rst
+type: panorama
+# preload static or default-based templates
+extends:
+
+# grouping of like snippets for dynamic menu creation in panhandler
+labels:
+  collection:
+    - myCollection
+
+# ---------------------------------------------------------------------
+# end of preamble section
+
+# variables section
+# ---------------------------------------------------------------------
+# variables used in the configuration templates
+# type_hint defines the form field used by panhandler
+# type_hints can be text, ip_address, or dropdown
+variables:
+  - name: hostname
+    description: Firewall hostname
+    default: myFirewall
+    type_hint: text
+  - name: choices
+    description: sample dropdown list
+    default: choices
+    type_hint: dropdown
+    dd_list:
+      - key: option1
+        value: option1
+      - key: option2
+        value: option2
+  - name: HOST_NAME
+    description: iwan hostname
+    default: new-iwan
+    type_hint: text
+  - name: HOST_IP
+    description: IWAN IP
+    default: 192.168.55.7/32
+    type_hint: fqdn_or_ip
+# ---------------------------------------------------------------------
+# end of variables section
+
+# snippets section
+# ---------------------------------------------------------------------
+# snippets used for api configuration including xpath and element as file name
+# files will load in the order listed
+# NOTE: The following snippets are auto-generated and ordered automatically.
+# Changing the content of the snippet may be necessary, but do NOT change the order
+
+# There is a variable called snippets that we can use to auto-generate this section for us
+snippets:
+
+  - name: entry-75913
+    xpath: /config/shared/address
+    element: |-
+        <entry name="{{ HOST_NAME }}">
+                <ip-netmask>{{ HOST_IP }}</ip-netmask>
+              </entry>
+
+  - name: member-538893
+    xpath: /config/shared/address-group/entry[@name="iWAN-Public-Group"]/static
+    element: |-
+        <member>{{ HOST_NAME }}</member>
+
+  - name: entry-75913
+    xpath: /config/shared/address
+    element: |-
+        <entry name="{{ HOST_NAME }}">
+                <ip-netmask>{{ HOST_IP }}</ip-netmask>
+              </entry>
+
+
+# ---------------------------------------------------------------------
+# end of snippets section
